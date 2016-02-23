@@ -2,3 +2,16 @@
 <p>
   The time is now: <%= Time.now %>
 </p>
+
+<table class="table">
+  <tr>
+    <th>Phone Number</th>
+    <th>Message</th>
+  </tr>
+  <% @messages.each do |message|%>
+  <tr>
+    <td><%=message.phone%></td>
+    <td><%=message.message%></td>
+  </tr>
+  <%end%>
+</table>
