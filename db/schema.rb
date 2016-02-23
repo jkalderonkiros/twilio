@@ -11,16 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223032642) do
+ActiveRecord::Schema.define(version: 20160223223743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.string   "contenttype"
+    t.string   "url"
+    t.integer  "message_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "images", ["message_id"], name: "index_images_on_message_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "phone"
     t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "messagesid"
+    t.integer  "nummedia"
   end
 
+  add_index "messages", ["messagesid"], name: "index_messages_on_messagesid", using: :btree
+
+  add_foreign_key "images", "messages"
 end

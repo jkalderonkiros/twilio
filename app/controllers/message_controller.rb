@@ -3,7 +3,19 @@ class MessageController < ApplicationController
 
   def create
     if params[:From]
-      message = Message.create(phone: params[:From], message: params[:Body])
+      message = Message.create(phone: params[:From], message: params[:Body], nummedia: params[:NumMedia], messagesid: params[:MessageSid])
+
+      $i = 1
+      $num = params[:NumMedia]
+
+      while $i <= $num  do
+        $contentkey = "MediaContentType#{$i}"
+        $mediaurl = "MediaUrl#{$i}"
+
+        Image.create(contenttype: params[$contentkey], url: params[$mediaurl], message: message)
+        $i +=1
+      end
+
       render :json => message, :status => 201
     else
       render :json => response, :status => 500
