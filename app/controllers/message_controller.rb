@@ -9,7 +9,7 @@ class MessageController < ApplicationController
       $i = 0
       $num = params[:NumMedia].to_i
 
-      while $i <= $num  do
+      while $i < $num  do
         $contentkey = "MediaContentType#{$i}"
         $mediaurl = "MediaUrl#{$i}"
 
