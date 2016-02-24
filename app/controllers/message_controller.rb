@@ -7,7 +7,7 @@ class MessageController < ApplicationController
       message = Message.create(phone: params[:From], message: params[:Body], nummedia: params[:NumMedia], messagesid: params[:MessageSid])
 
       $i = 0
-      $num = params[:NumMedia]
+      $num = params[:NumMedia].to_i
 
       while $i <= $num  do
         $contentkey = "MediaContentType#{$i}"
