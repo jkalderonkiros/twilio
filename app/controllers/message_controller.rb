@@ -6,7 +6,7 @@ class MessageController < ApplicationController
     if params[:From]
       message = Message.create(phone: params[:From], message: params[:Body], nummedia: params[:NumMedia], messagesid: params[:MessageSid])
 
-      $i = 1
+      $i = 0
       $num = params[:NumMedia]
 
       while $i <= $num  do
