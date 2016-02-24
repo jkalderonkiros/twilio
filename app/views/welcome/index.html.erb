@@ -10,11 +10,39 @@
   <tr>
     <th>Phone Number</th>
     <th>Message</th>
+    <th>MessageSid</th>
+    <th>NumMedia</th>
   </tr>
   <% @messages.each do |message|%>
   <tr>
     <td><%=message.phone%></td>
     <td><%=message.message%></td>
+    <td><%=message.messagesid%></td>
+    <td><%=message.nummedia%></td>
+  </tr>
+  <%end%>
+</table>
+
+<table class="table">
+  <tr>
+    <th>Content Type</th>
+    <th>Url</th>
+  </tr>
+  <% @images.each do |image|%>
+  <tr>
+    <td><%=image.contenttype%></td>
+    <td><%=image.url%></td>
+  </tr>
+  <%end%>
+</table>
+
+<table class="table">
+  <tr>
+    <th>Request</th>
+  </tr>
+  <% @requests.each do |request|%>
+  <tr>
+    <td><%=request.body%></td>
   </tr>
   <%end%>
 </table>

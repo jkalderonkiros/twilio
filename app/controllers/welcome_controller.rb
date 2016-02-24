@@ -1,8 +1,10 @@
 class WelcomeController < ApplicationController
-  before_action :getMessages
+  before_action :loadAll
 
-  def getMessages
+  def loadAll
     @messages = Message.all
+    @images = Image.all
+    @requests = Request.all
   end
 
 end
