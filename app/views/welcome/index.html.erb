@@ -13,6 +13,7 @@
     <th>Message</th>
     <th>MessageSid</th>
     <th>NumMedia</th>
+    <th>Date</th>
   </tr>
   <% @messages.each do |message|%>
   <tr>
@@ -20,6 +21,7 @@
     <td><%=message.message%></td>
     <td><%=message.messagesid%></td>
     <td><%=message.nummedia%></td>
+    <td><%=message.updated_at%></td>
   </tr>
   <%end%>
 </table>
@@ -29,11 +31,13 @@
   <tr>
     <th>Content Type</th>
     <th>Url</th>
+    <th>Date</th>
   </tr>
   <% @images.each do |image|%>
   <tr>
     <td><%=image.contenttype%></td>
-    <td><%=image.url%></td>
+    <td><img src="<%=image.url%>" style="width: 50px"/></td>
+    <td><%=image.updated_at%></td>
   </tr>
   <%end%>
 </table>
@@ -42,10 +46,12 @@
 <table class="table">
   <tr>
     <th>Request</th>
+    <th>Date</th>
   </tr>
   <% @requests.each do |request|%>
   <tr>
     <td><%=request.body%></td>
+    <td><%=request.updated_at%></td>
   </tr>
   <%end%>
 </table>
