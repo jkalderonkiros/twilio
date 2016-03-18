@@ -45,5 +45,7 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'twilio-ruby'
+
 ruby "2.1.5"
 

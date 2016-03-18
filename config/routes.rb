@@ -58,4 +58,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
   post 'message' => 'message#create'
   get  'message' => 'message#get'
+  post 'send' => 'message#sendsms'
 end

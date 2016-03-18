@@ -28,4 +28,25 @@ class MessageController < ApplicationController
     render :json => response, :status => 200
   end
 
+  def sendsms
+    account_sid = 'AC242d33bb6b3302ffc43775add3ce5720'
+    auth_token = '76ff3c029b44629be2ca25c6bbc78107'
+
+    #account_sid = 'AC45a8b9cd2b58370b180a149b15700301'
+    #auth_token = 'a31cb48c7c1712a3d7d064d82df21e9b'
+ 
+    # set up a client to talk to the Twilio REST API 
+    @client = Twilio::REST::Client.new account_sid, auth_token 
+ 
+    @client.account.messages.create({
+      :from => params[:from],
+      :to => params[:to],
+      :body => params[:body],
+      :media_url => params[:media_url] #'http://farm2.static.flickr.com/1075/1404618563_3ed9a44a3a.jpg', 
+    })
+
+    response = { :data => "ok" }
+    render :json => response, :status => 200
+  end
+
 end
